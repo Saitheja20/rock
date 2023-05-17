@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="wrapper">
+    <div>
+    <h2>Rock paper Secssiors Game</h2>
+    <p>Please chhoose anyone option 0=rock or 1=paper or 2=scissors </p>
+    <div class="inputdiv">
+        <input type="text" id="input" placeholder="choose your self 0 or 1 or 2">
+    </div>
+    <div>
+        <button type="submit" class="p-3 mb-2 bg-success text-white" onclick="convert()">Play</button>
+    </div>
+
+
+    <div id="userandcomputer">
+        <div id="row">
+            <div id="column">
+        <div id="user" style="text-align: left;"><p></div>
+        </div>
+            <div id="column">
+         <div id="vs" style="text-align: center;">VS</div>
+        </div>
+         <div id="column">
+        <div id="computer" style="text-align: right;"></div>
+    </div>
+    </div>
+</div>
+    <div id="error"></div>
+    </div>
+    <div>
+    <br><br><br>
+    <hr>
+</div>
+</div>
+    <div id="showdetails"></div>
+    <div id="result">
+    </div>
+
+
+<script>
+    function convert(){
+        let c=  Number (document.getElementById("input").value)
+        let ug;
+            if(c>2){
+                let error= document.getElementById("error")
+                error.innerHTML="Sorry you must enter 0 or 1 or 2 only! please try again";
+            }
+            else{
+            switch(c){
+                case 0: ug="rock";
+                break;
+                case 1: ug= "paper";
+                break;
+                case 2: ug="scissors";
+                break;
+            }
+        //||||||||||||||||||||||||||||||||||||||random||||||||||||||||||||||||||||||||||||||||
+            let random = Math.floor(Math.random()*3);
+            let cg;
+            switch(random){
+                case 0: cg="rock";
+                break;
+                case 1: cg= "paper";
+                break;
+                case 2: cg="scissors";
+                break;
+            }
+
+//||||||||||||||||||||||user pic(images)|||||||||||||||||||||||||||||||||||||||||||||
+
+if (ug === "rock") {
+    let u = document.getElementById("user");
+    u.innerHTML = "     YOU "+"<img src='rock.png'\" width=\"250px\" height=\"250px\">";
+} else if (ug === "paper") {
+    let u = document.getElementById("user");
+    u.innerHTML = "     YOU "+"<img src='paper.png'\" width=\"250px\" height=\"250px\">";
+} else {
+    let u = document.getElementById("user");
+    u.innerHTML = "      YOU "+"<img src='scissors.png'\" width=\"250px\" height=\"250px\">"
+}
+
+
+if (cg === "rock") {
+    let u = document.getElementById("computer");
+    u.innerHTML = "  ME  "+"<img src='rock.png'\" width=\"250px\" height=\"250px\">";
+} else if (cg === "paper") {
+    let u = document.getElementById("computer");
+    u.innerHTML = "  ME  "+"<img src='paper.png'\" width=\"250px\" height=\"250px\">";
+} else {
+    let u = document.getElementById("computer");
+    u.innerHTML = "  ME  "+"<img src='scissors.png'\" width=\"250px\" height=\"250px\">"
+}
+
+    
+    //||||||||||||||||||||||||||||||\main programm coding|||||||||||||||||||||||||||||||||||||||||||||||||\
+
+
+    let show=document.getElementById("showdetails")
+    showdetails.innerHTML="user choosen "+ug+" my guess is "+cg;
+        
+        if(cg===ug){
+        let result =document.getElementById("result");
+        result.innerHTML="OOPS....!!!! our game was tie please retry";
+        console.log("main programm");
+    }
+    else if(ug==="rock"&&cg==="paper"){
+        let result =document.getElementById("result");
+        result.innerHTML="I won, I know I'm Great";
+        console.log("main programm");
+    }
+    else if(ug==="rock"&&cg==="scissors"){
+        let result =document.getElementById("result");
+        result.innerHTML="You won, I bet you I will in next time...";
+        console.log("main programm");
+    }
+    else if(ug==="paper"&&cg==="rock"){
+        let result =document.getElementById("result");
+        result.innerHTML="You won, I bet you I will in next time...";
+        console.log("main programm");
+    }
+    else if(ug==="paper"&&cg==="scissors"){
+        let result =document.getElementById("result");
+        result.innerHTML="I won, I know I'm Great";
+        console.log("main programm");
+    }
+    else if(ug==="scissors"&&cg==="rock"){
+        let result =document.getElementById("result");
+        result.innerHTML="I won, I know I'm Great";
+        console.log("main programm");
+    }
+    else if(ug==="scissors"&&cg==="paper"){
+        let result =document.getElementById("result");
+        result.innerHTML="You won, I bet you I will in next time...";
+        console.log("main programm");
+    }
+    else{
+        let r =document.getElementById("result");
+        result.innerHTML="OOPS..............Somthing went wrong";
+        console.log("main programm");
+    }
+}
+}
+</script>
+</body>
+</html>
